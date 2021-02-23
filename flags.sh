@@ -1,5 +1,5 @@
 #!/bin/bash
-# Thi little script replaces gnome layout labels with flag emoji
+# This little script replaces gnome layout labels with flag emoji
 EVDEV=/usr/share/X11/xkb/rules/evdev.xml
 
 if [[ $UID != 0 ]]; then
@@ -18,7 +18,7 @@ if test -f $EVDEV.bak; then
 fi
 
 read -p "Use UK flag (default) for English layouts (instead of US flag)? (Y / n): " confirm
-if [[ $confirm = [nN][oO] ]]; then
+if [[ $confirm = [nN] || $confirm = [nN][oO] ]]; then
     enFlag="🇺🇸"
 else
     enFlag="🇬🇧"
@@ -45,7 +45,7 @@ if test -f $EVDEV; then
     cp -n $EVDEV $EVDEV.bak
 
     for KEY in "${!flags[@]}"; do
-        # Replace labels with flag emoji
+        # Replace each label with flag emoji
         sed -i "s/$TAG$KEY/$TAG${flags[$KEY]}/" $EVDEV
     done
 
