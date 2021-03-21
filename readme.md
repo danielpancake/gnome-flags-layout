@@ -1,4 +1,4 @@
-# GNOME label to emoji flags 🇺🇳 
+# GNOME language labels to emoji flags
 
 ## Installation
 Copy and paste this command in your terminal 
